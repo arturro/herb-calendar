@@ -19,3 +19,14 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+from django.contrib import admin
+from django.urls import include, path
+
+from .api import router
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    # WebAPI: dopisz do projektu:
+    path('api/v1/', include(router.urls)),
+]
